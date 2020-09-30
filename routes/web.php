@@ -21,4 +21,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/propouseauth', function() {
+    return view('propouseauth');
+})->name('propouseauth');
+
+Route::get('/home', [HomeController::class, 'index'])
+    ->middleware('myauth')
+    ->name('home.index');
