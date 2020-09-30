@@ -7,9 +7,12 @@ use Illuminate\View\Component;
 class Header extends Component
 {
     public $title;
-    public function __construct($title = "Nik's blog")
+    public $p;
+
+    public function __construct($title, $p)
     {
         $this->title = $title;
+        $this->p = $p;
     }
 
     /**
