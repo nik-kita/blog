@@ -1,3 +1,3 @@
 <div>
-    <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
+    <h1>{{ $title }}</h1>
 </div>

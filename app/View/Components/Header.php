@@ -6,14 +6,10 @@ use Illuminate\View\Component;
 
 class Header extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $title;
+    public function __construct($title = "Nik's blog")
     {
-        //
+        $this->title = $title;
     }
 
     /**
