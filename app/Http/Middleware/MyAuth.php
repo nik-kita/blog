@@ -11,18 +11,22 @@ class MyAuth
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             return $next($request);
         } else {
-            $back = $request->session()->get('url')['intended'];
-            return response(view('propouseauth')
-                ->with('back', $back));
+            if($request->session()->previousUrl()) {
+                $back = $request->session()->previousUrl();
+                return response(view('propouseauth')
+                    ->with('back', $back));
+            } else {
+                return response()->redirectToRoute('home.index');
+            }
         }
     }
 }
