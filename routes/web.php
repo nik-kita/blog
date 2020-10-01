@@ -25,6 +25,9 @@ Route::get('/propouseauth', function() {
     return view('propouseauth');
 })->name('propouseauth');
 
+Route::get('/create', function() {
+
+})->middleware('myauth')->name('create');
+
 Route::get('/home', [HomeController::class, 'index'])
-    ->middleware('myauth')
     ->name('home.index');

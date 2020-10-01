@@ -9,6 +9,7 @@
 <body>
 
 @yield('content')
+<x-sidebar/>
 <x-footer/>
 </body>
 </html>

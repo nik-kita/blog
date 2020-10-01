@@ -20,8 +20,9 @@ class MyAuth
         if(Auth::check()) {
             return $next($request);
         } else {
-
-            return response(view('propouseauth')->with('back', $request->fullUrl()));
+            $back = $request->session()->get('url')['intended'];
+            return response(view('propouseauth')
+                ->with('back', $back));
         }
     }
 }
