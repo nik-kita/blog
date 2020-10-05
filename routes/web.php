@@ -25,9 +25,9 @@ Route::get('/propouseauth', function() {
     return view('propouseauth');
 })->name('propouseauth');
 
-Route::get('/create', function() {
-
-})->middleware('myauth')->name('create');
+use App\Http\Controllers\PostController;
+Route::get('/create', [PostController::class, 'create'])
+    ->middleware('myauth')->name('create');
 
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home.index');
