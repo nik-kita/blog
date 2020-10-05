@@ -19,14 +19,19 @@ class MyAuth
     {
         if (Auth::check()) {
             return $next($request);
-        } else {
-            if($request->session()->previousUrl()) {
-                $back = $request->session()->previousUrl();
-                return response(view('propouseauth')
-                    ->with('back', $back));
-            } else {
-                return response()->redirectToRoute('home.index');
-            }
+
         }
+        if ($request->session()->previousUrl() != null) {
+            $back = $request->session()->previousUrl();
+            if ($request->session()->previousUrl() == $request->url()) {
+                $back = route('home.index');
+            }
+            return response(view('propouseauth')
+                ->with('back', $back));
+        } else {
+            return redirect()->route('home.index');
+
+        }
+
     }
 }
