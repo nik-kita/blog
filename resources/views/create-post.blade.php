@@ -5,8 +5,9 @@
         <input type="text" placeholder="Title_">
         <textarea for="form" placeholder="Fell free  to use markdown syntax!"></textarea>
         <select name="tags">
-            <option value="php">PHP</option>
-            <option value="java">Java</option>
+            @foreach($tags as $t)
+                <option value="{{ $t->id }}">{{ $t->name }}</option>
+            @endforeach
         </select>
         <input type="submit" value="Ok">
     </form>
