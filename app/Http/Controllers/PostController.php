@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -17,6 +18,10 @@ class PostController extends Controller
 
     public function save(Request $request) {
         $post = new Post;
-        dd($request);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = Auth::id();
+        $post->save();
+        $post->tags()->attach($request->tags);
     }
 }
