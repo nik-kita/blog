@@ -18,6 +18,10 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public function posts() {
+        return $this->hasMany('App\Models\Post');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
