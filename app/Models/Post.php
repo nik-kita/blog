@@ -21,7 +21,4 @@ class Post extends Model
         return $this->belongsToMany('App\Models\Tag');
     }
 
-    protected $hidden = [
-        'user_id',
-    ];
 }
