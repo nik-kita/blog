@@ -29,5 +29,7 @@ use App\Http\Controllers\PostController;
 Route::get('/create', [PostController::class, 'create'])
     ->middleware('myauth')->name('create');
 
+Route::post('/create', [PostController::class, 'save'])->name('save');
+
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home.index');
