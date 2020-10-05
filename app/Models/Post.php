@@ -17,6 +17,10 @@ class Post extends Model
         return $this->hasMany('App\Models\Comment');
     }
 
+    public function tags() {
+        return $this->belongsToMany('App\Models\Tag');
+    }
+
     protected $hidden = [
         'user_id',
     ];
