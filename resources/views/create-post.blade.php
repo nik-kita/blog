@@ -4,11 +4,12 @@
     <form name="form">
         <input type="text" placeholder="Title_">
         <textarea for="form" placeholder="Fell free  to use markdown syntax!"></textarea>
-        <select name="tags">
+
             @foreach($tags as $t)
-                <option value="{{ $t->id }}">{{ $t->name }}</option>
+                    <input type="checkbox" id="{{ $t->name }}" name="{{ $t->name }}" value="{{ $t->id }}">
+                    <label for="{{ $t->name }}">{{ $t->name }}</label><br>
             @endforeach
-        </select>
+
         <input type="submit" value="Ok">
     </form>
 @endsection
