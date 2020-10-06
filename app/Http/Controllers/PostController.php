@@ -18,10 +18,11 @@ class PostController extends Controller
 
     public function save(Request $request) {
         $post = new Post;
-        $post->title = $request->title;
-        $post->body = $request->body;
         $post->user_id = Auth::id();
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
         $post->save();
-        $post->tags()->attach($request->tags);
+        $post->tags()->attach($request->input('tags'));
+        dd(Post::find($post->id));
     }
 }
