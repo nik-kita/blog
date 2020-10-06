@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CommentsController;
 
 Route::get('/laravel', function () {
     return view('welcome');
@@ -30,7 +32,12 @@ Route::get('/', [HomeController::class, 'index'])
 
 Route::get('/show', [PostController::class, 'show'])->name('show');
 
-Route::get('/post/random', [PostController::class, 'random'])->name('random');
+Route::get('/post/random', [SearchController::class, 'random'])->name('random');
 Route::get('/post/{id}', [PostController::class, 'singleShow'])->name('single_show');
-Route::get('/search', [PostController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
+Route::get('/post/{id}/comment/add', [CommentsController::class, 'addComment'])
+    ->middleware('myauth')
+    ->name('addComment');
+
+Route::post('/comment/save', [CommentsController::class, 'saveComment'])->name('saveComment');
