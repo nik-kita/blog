@@ -27,3 +27,10 @@ Route::post('/posts/create', [PostController::class, 'save'])
 
 Route::get('/', [HomeController::class, 'index'])
     ->name('home.index');
+
+Route::get('/show', [PostController::class, 'show'])->name('show');
+
+Route::get('/post/random', [PostController::class, 'random'])->name('random');
+Route::get('/post/{id}', [PostController::class, 'singleShow'])->name('single_show');
+Route::get('/search', [PostController::class, 'search'])->name('search');
+
