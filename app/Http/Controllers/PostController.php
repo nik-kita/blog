@@ -23,6 +23,8 @@ class PostController extends Controller
         $post->body = $request->input('body');
         $post->save();
         $post->tags()->attach($request->input('tags'));
-        return view('save-post');
+        return view('save-post', [
+            'post' => $post
+        ]);
     }
 }
