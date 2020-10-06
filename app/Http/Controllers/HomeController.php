@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $title = "Welcome to Nik's blog!";
         if (Auth::check()) {
-            $title = "Welcome back " .
+            $title = "We are glad to see you! " .
                 User::find(Auth::id())->name . "!";
         }
         return view('home', compact('title'));

@@ -22,6 +22,7 @@ Route::get('/posts/create', [PostController::class, 'create'])
     ->name('create');
 
 Route::post('/posts/create', [PostController::class, 'save'])
+    ->middleware('mysavepost')
     ->name('save');
 
 Route::get('/', [HomeController::class, 'index'])

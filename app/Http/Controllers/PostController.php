@@ -23,6 +23,6 @@ class PostController extends Controller
         $post->body = $request->input('body');
         $post->save();
         $post->tags()->attach($request->input('tags'));
-        dd(Post::find($post->id));
+        return view('save-post');
     }
 }

@@ -18,8 +18,8 @@ class MyAuth
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            return $next($request);
 
+            return $next($request);
         }
         if ($request->session()->previousUrl() != null) {
             $back = $request->session()->previousUrl();
@@ -29,9 +29,8 @@ class MyAuth
             return response(view('propouseauth')
                 ->with('back', $back));
         } else {
+
             return redirect()->route('home.index');
-
         }
-
     }
 }
