@@ -7,7 +7,7 @@
         <textarea name="body" for="form" placeholder="Fell free  to use markdown syntax!"></textarea>
 
             @foreach($tags as $t)
-                    <input type="checkbox" id="{{ $t->name }}" name="{{ $t->name }}" value="{{ $t->id }}">
+                    <input type="checkbox" id="{{ $t->name }}" name="tags[]" value="{{ $t->id }}">
                     <label for="{{ $t->name }}">{{ $t->name }}</label><br>
             @endforeach
 
