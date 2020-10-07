@@ -50,3 +50,5 @@ Route::post('/post/edit', [PostController::class, 'update'])->name('update');
 Route::get('/post/{id}/delete', [PostController::class, 'delete'])
     ->middleware('myauth')
     ->name('delete');
+
+Route::get('/search/{tag}', [SearchController::class, 'searchByTag'])->name('searchByTag');

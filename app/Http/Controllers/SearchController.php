@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -23,6 +24,12 @@ class SearchController extends Controller
 
         return view('show', [
             'posts' => $results,
+        ]);
+    }
+
+    public function searchByTag($tag) {
+        return view('show', [
+            'posts' => Tag::find($tag)->posts()->get()
         ]);
     }
 }

@@ -5,7 +5,9 @@
         {{ $post->body }}
         <p>|
             @foreach($post->tags()->get() as $t)
-                <span class="text-small text-secondary">{{ $t->name }}<span/> |
+                <a href="{{ route('searchByTag', ['tag' => $t->id]) }}">
+                <span class="text-small text-secondary">{{ $t->name }}<span/>
+                <a/> |
             @endforeach
         </p>
         <a href="#">
