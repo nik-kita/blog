@@ -4,7 +4,7 @@
     <hr>
     <span>{{ $author }}</span>
     <p>
-    {{ $text }}
+    @parsedown($text)
     </p>
 
 </div>

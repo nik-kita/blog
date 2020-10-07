@@ -40,7 +40,6 @@ class PostController extends Controller
         ]);
     }
 
-
     public function edit($id) {
         $post = Post::find($id);
         return view('edit-post', [
@@ -49,19 +48,18 @@ class PostController extends Controller
     }
 
     public function update(Request $request) {
-        Post::find($request->input('postId'))
+        $postId = $request->input('postId');
+        Post::find($postId)
             ->update([
                 'title' => $request->input('title'),
                 'body' => $request->input('body')
             ]);
-        Post::find($request->input('postId'))->tags()->sync($request->input('tags'));
-        return view('show-post', ['post' => Post::find($request->input('id'))]);
+        Post::find($postId)->tags()->sync($request->input('tags'));
+        return view('show-post', ['post' => Post::find($postId)]);
     }
 
     public function delete($id) {
         Post::find($id)->delete();
         return view('show', ['posts' => Post::get()]);
     }
-
-
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTagsTable extends Migration
+class CreateDefaultUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-
-            $table->string('name', 20);
-        });
+        $user = new \App\Models\User();
+        $user->name = 'Nikita';
+        $user->password = Hash::make('superpuperparol');
+        $user->email = 'nikita@gmail.com';
+        $user->save();
     }
 
     /**
@@ -28,6 +27,8 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

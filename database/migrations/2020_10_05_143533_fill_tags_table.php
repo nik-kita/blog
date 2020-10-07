@@ -15,8 +15,8 @@ class FillTagsTable extends Migration
     public function up()
     {
         $tags = [
-            'PHP', 'Java', 'Javascript', 'Python', 'Kotlin', 'Linux', 'Ubuntu', 'Laravel', 'Django', 'Go', 'Bash', 'Terminal',
-            'Selenium', 'Appium', 'QA', 'CSS', 'HTML', 'Markdown', 'Postgres', 'SQL', 'mySql', 'SQLite', 'Docker',
+            'UNSOLVED', 'HOT QUESTION', 'No Laravel', 'HardCode', 'Eloquent', 'Blade', 'Reauest', 'Laravel', 'Best Practice',
+            'Magic', 'Case Naming Rules',
         ];
         foreach ($tags as $t) {
             \Illuminate\Support\Facades\DB::table('tags')->insert(['name' => $t]);
