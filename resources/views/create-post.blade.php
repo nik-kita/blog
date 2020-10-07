@@ -12,6 +12,7 @@
             @error('body')
             <span class="text-small text-danger">The body should contain minimum 20 characters</span>
             @enderror
+            <hr>
             @foreach($tags as $t)
                 <input type="checkbox" id="{{ $t->name }}" name="tags[]" value="{{ $t->id }}">
                 <label for="{{ $t->name }}">{{ $t->name }}</label><br>

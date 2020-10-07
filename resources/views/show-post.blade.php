@@ -8,7 +8,7 @@
             <p>|
                 @foreach($post->tags()->get() as $t)
                     <a href="{{ route('searchByTag', ['tag' => $t->id]) }}">
-                <span class="text-small text-secondary">{{ $t->name }}<span/>
+                {{ $t->name }}
                 <a/> |
                 @endforeach
             </p>

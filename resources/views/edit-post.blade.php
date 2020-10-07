@@ -15,6 +15,7 @@
             <span class="text-small text-danger">The body should contain minimum 20 characters</span>
             @enderror
 
+            <hr>
             @foreach(App\Models\Tag::get() as $t)
                 @if($post->tags()->get()->contains($t))
                     <input type="checkbox" id="{{ $t->name }}" name="tags[]" value="{{ $t->id }}" checked>
