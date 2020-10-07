@@ -6,7 +6,9 @@
 
 
 <p>
-    {{ $post->title }}
+    <a href="{{ route('single_show', ['id' => $post->id]) }}">
+        <h4>{{ $post->title }}</h4>
+    </a>
 </p>
 
 @endsection

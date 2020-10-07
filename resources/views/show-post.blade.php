@@ -2,7 +2,7 @@
 {{ $post->title }}
 @section('content')
     <div>
-        {{ $post->body }}
+        @parsedown($post->body)
         <p>|
             @foreach($post->tags()->get() as $t)
                 <a href="{{ route('searchByTag', ['tag' => $t->id]) }}">
