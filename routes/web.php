@@ -45,6 +45,8 @@ Route::post('/comment/save', [CommentsController::class, 'saveComment'])->name('
 Route::get('/post/{id}/edit', [PostController::class, 'edit'])
     ->middleware('myauth')
     ->name('edit');
+
+Route::post('/post/edit', [PostController::class, 'update'])->name('update');
 Route::get('/post/{id}/delete', [PostController::class, 'delete'])
     ->middleware('myauth')
     ->name('delete');

@@ -40,8 +40,21 @@ class PostController extends Controller
         ]);
     }
 
-    public function edit($id) {
 
+    public function edit($id) {
+        $post = Post::find($id);
+        return view('edit-post', [
+            'post' => $post,
+        ]);
+    }
+
+    public function update(Request $request) {
+        $post = Post::find($request->input('id'))
+            ->update([
+                'title' => $request->input('title'),
+                'body' => $request->input('body')
+            ]);
+        return view('show-post', ['post' => Post::find($request->input('id'))]);
     }
 
     public function delete($id) {
