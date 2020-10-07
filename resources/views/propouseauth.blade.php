@@ -2,5 +2,8 @@
 <x-header title="Ooops...What is your name?"
           p="You should be our registered user for connecting to this functional."/>
 @section('content')
-    <a href="{{ $back }}">Back</a>
+    <div style="display: inline-block">
+        <a href="{{ $back }}">Back</a>
+
+    </div>
 @endsection

@@ -8,8 +8,8 @@
 </head>
 <body>
 
+<x-sidebar style="display: inline-block"/>
 @yield('content')
-<x-sidebar/>
 <x-footer/>
 </body>
 </html>

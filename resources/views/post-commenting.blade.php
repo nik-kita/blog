@@ -3,6 +3,8 @@
 
 
 @section('content')
+<div style="display: inline-block">
+
     <h4>{{ $post->title }}</h4>
     <p>{{ $post->body }}</p>
     <hr>
@@ -15,4 +17,5 @@
             <button>Cancel</button>
         </a>
     </form>
+</div>
 @endsection
