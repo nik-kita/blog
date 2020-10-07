@@ -40,5 +40,14 @@ class PostController extends Controller
         ]);
     }
 
+    public function edit($id) {
+
+    }
+
+    public function delete($id) {
+        Post::find($id)->delete();
+        return view('show', ['posts' => Post::get()]);
+    }
+
 
 }

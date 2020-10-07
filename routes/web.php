@@ -41,3 +41,10 @@ Route::get('/post/{id}/comment/add', [CommentsController::class, 'addComment'])
     ->name('addComment');
 
 Route::post('/comment/save', [CommentsController::class, 'saveComment'])->name('saveComment');
+
+Route::get('/post/{id}/edit', [PostController::class, 'edit'])
+    ->middleware('myauth')
+    ->name('edit');
+Route::get('/post/{id}/delete', [PostController::class, 'delete'])
+    ->middleware('myauth')
+    ->name('delete');

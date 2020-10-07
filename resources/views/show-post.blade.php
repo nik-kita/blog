@@ -8,6 +8,15 @@
                 <span class="text-small text-secondary">{{ $t->name }}<span/> |
             @endforeach
         </p>
+        <a href="#">
+            <button>Like</button>
+        </a>
+        <a href="{{ route('edit', ['id' => $post->id]) }}">
+            <button>Edit</button>
+        </a>
+        <a href="{{ route('delete', ['id' => $post->id]) }}">
+            <button>Delete</button>
+        </a>
     </div>
 
     <a href="{{ route('addComment', ['id' => $post->id]) }}">
