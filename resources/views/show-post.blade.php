@@ -10,8 +10,24 @@
                 <a/> |
             @endforeach
         </p>
+        <p>
+            <span id='oldLikes' style="display: none">{{ $post->likes }}</span>
+            This post has <span id="likes">{{ $post->likes }}</span> likes
+        </p>
         <a href="#">
-            <button>Like</button>
+            <button onclick="like()">Like</button>
+            <script>
+                function like() {
+                    let old = Number(document.getElementById('oldLikes').textContent)
+                    let current = Number(document.getElementById('likes').textContent)
+                    if(old === current) {
+                        current++
+                    } else {
+                        current--
+                    }
+                    document.getElementById('likes').textContent = current
+                }
+            </script>
         </a>
         <a href="{{ route('edit', ['id' => $post->id]) }}">
             <button>Edit</button>
