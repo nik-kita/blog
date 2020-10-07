@@ -49,11 +49,12 @@ class PostController extends Controller
     }
 
     public function update(Request $request) {
-        $post = Post::find($request->input('id'))
+        Post::find($request->input('postId'))
             ->update([
                 'title' => $request->input('title'),
                 'body' => $request->input('body')
             ]);
+        Post::find($request->input('postId'))->tags()->sync($request->input('tags'));
         return view('show-post', ['post' => Post::find($request->input('id'))]);
     }
 

@@ -12,12 +12,17 @@
         @error('body')
         <span class="text-small text-danger">The body should contain minimum 20 characters</span>
         @enderror
-{{--        TODO--}}
-{{--        @foreach($tags as $t)--}}
-{{--            <input type="checkbox" id="{{ $t->name }}" name="tags[]" value="{{ $t->id }}">--}}
-{{--            <label for="{{ $t->name }}">{{ $t->name }}</label><br>--}}
-{{--        @endforeach--}}
-{{--        TODO--}}
+
+        @foreach(App\Models\Tag::get() as $t)
+            @if($post->tags()->get()->contains($t))
+                <input type="checkbox" id="{{ $t->name }}" name="tags[]" value="{{ $t->id }}" checked>
+                <label for="{{ $t->name }}">{{ $t->name }}</label><br>
+            @else
+                <input type="checkbox" id="{{ $t->name }}" name="tags[]" value="{{ $t->id }}">
+                <label for="{{ $t->name }}">{{ $t->name }}</label><br>
+            @endif
+        @endforeach
+
         <input type="submit" value="Ok">
     </form>
 @endsection
